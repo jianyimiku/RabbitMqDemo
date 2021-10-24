@@ -29,7 +29,7 @@ public class AsyncTaskConfig implements AsyncConfigurer {
         threadPoolTaskExecutor.setMaxPoolSize(100);
         threadPoolTaskExecutor.setQueueCapacity(10);
         threadPoolTaskExecutor.setWaitForTasksToCompleteOnShutdown(true);
-        threadPoolTaskExecutor.setAwaitTerminationSeconds(60);
+//        threadPoolTaskExecutor.setAwaitTerminationSeconds(60);
         threadPoolTaskExecutor.setThreadNamePrefix("Rabbit-Async-");
         threadPoolTaskExecutor.setKeepAliveSeconds(10);
 
