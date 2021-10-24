@@ -9,7 +9,11 @@
     <packaging>pom</packaging>
     <version>1.0.0</version>
     <modules>
-        <module>orderServiceManager</module>
+        <module>order-service-manager</module>
+        <module>resturant-service-manager</module>
+        <module>delivery-service-manager</module>
+        <module>settlement-service-manager</module>
+        <module>reward-service-manager</module>
     </modules>
 
     <parent>

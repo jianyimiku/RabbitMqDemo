@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 配置标签 scan 配置文件发生改变再次扫描 scanPeriod 默认毫秒  debug 打印出logback的信息-->
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <property name="log.pattern"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50}-%msg%n"/>
+    <!--  appender 输出媒介  -->
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <!--  负责转换日志文件和将日志文件输出到日志中      -->
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- info   -->
+<!--    <appender name="infoAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        &lt;!&ndash;   文件路径     &ndash;&gt;-->
+<!--        <file>${log.filePath}/debug.log</file>-->
+<!--        &lt;!&ndash;   滚动策略     &ndash;&gt;-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            &lt;!&ndash;    文件名称        &ndash;&gt;-->
+<!--            <fileNamePattern>-->
+<!--                ${log.filePath}/debug/debug.%d{yyyy-MM-dd}.log.gz-->
+<!--            </fileNamePattern>-->
+<!--            //保留天数-->
+<!--            <maxHistory>${log.maxHistory}</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--        <encoder>-->
+<!--            <pattern>${log.pattern}</pattern>-->
+<!--        </encoder>-->
+<!--        &lt;!&ndash;  onMatch 符合设定的level就接受 不符合就否定      &ndash;&gt;-->
+<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+<!--            <level>INFO</level>-->
+<!--            <onMatch>ACCEPT</onMatch>-->
+<!--            <onMismatch>DENY</onMismatch>-->
+<!--        </filter>-->
+<!--    </appender>-->
+
+
+    <root level="info">
+        <appender-ref ref="consoleAppender"/>
+    </root>
+</configuration>

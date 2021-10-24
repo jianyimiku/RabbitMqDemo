@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="/Users/jianyimiku/jar/mysql/mysql-connector-java/8.0.21/mysql-connector-java-8.0.21.jar"/>
+
+    <context id="MysqlContext" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="beginningDelimiter" value="`"/>
+            <property name="endingDelimiter" value="`"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/food?serverTimezone=UTC"
+                        userId="Miku"
+                        password="39">
+        </jdbcConnection>
+
+        <!-- 对应生成的pojo所在包 -->
+        <javaModelGenerator targetPackage="com.example.restruantservice.pojo"
+                            targetProject="src/main/java"/>
+
+        <!-- 对应生成的mapper所在目录 *.xml-->
+        <sqlMapGenerator targetPackage="com.example.restruantservice.dao"
+                         targetProject="src/main/resources"/>
+
+        <!-- 配置mapper对应的java映射 -->
+        <javaClientGenerator targetPackage="com.example.restruantservice.dao"
+                             targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+
+        <table tableName="restaurant"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+    </context>
+</generatorConfiguration>
