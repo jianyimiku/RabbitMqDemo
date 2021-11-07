@@ -61,21 +61,21 @@ public class OrderMessageService {
             channel.exchangeDeclare("exchange.order.restaurant",
                     BuiltinExchangeType.DIRECT, true, false, null);
 
-            channel.exchangeDeclare("exchange.dlx", BuiltinExchangeType.TOPIC,
-                    true, false, null);
-            channel.queueDeclare("queue.dlx", true, false, false, null);
-
-            channel.queueBind("queue.dlx", "exchange.dlx", "#");
+//            channel.exchangeDeclare("exchange.dlx", BuiltinExchangeType.TOPIC,
+//                    true, false, null);
+//            channel.queueDeclare("queue.dlx", true, false, false, null);
+//
+//            channel.queueBind("queue.dlx", "exchange.dlx", "#");
 
             // 设置队列消息整体的过期时间
-            Map<String, Object> args = new HashMap<>(16);
-            args.put("x-message-ttl", 15000);
+//            Map<String, Object> args = new HashMap<>(16);
+//            args.put("x-message-ttl", 15000);
 //            args.put("x-max-length", 5);
-            args.put("x-dead-letter-exchange", "exchange.dlx");
+//            args.put("x-dead-letter-exchange", "exchange.dlx");
 
 
             channel.queueDeclare("queue.restaurant"
-                    , true, false, false, args);
+                    , true, false, false, null);
 
 
 //            channel.queueDeclare("queue.restaurant"

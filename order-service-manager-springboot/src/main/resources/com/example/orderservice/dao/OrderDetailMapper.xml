@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.orderservice.dao.OrderDetailMapper">
+  <resultMap id="BaseResultMap" type="com.example.orderservice.pojo.OrderDetail">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="account_id" jdbcType="INTEGER" property="accountId" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="deliveryman_id" jdbcType="INTEGER" property="deliverymanId" />
+    <result column="settlement_id" jdbcType="INTEGER" property="settlementId" />
+    <result column="reward_id" jdbcType="INTEGER" property="rewardId" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="date" jdbcType="TIMESTAMP" property="date" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, status, address, account_id, product_id, deliveryman_id, settlement_id, reward_id, 
+    price, date
+  </sql>
+  <insert id="insertSelective" parameterType="com.example.orderservice.pojo.OrderDetail">
+    insert into order_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="accountId != null">
+        account_id,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="deliverymanId != null">
+        deliveryman_id,
+      </if>
+      <if test="settlementId != null">
+        settlement_id,
+      </if>
+      <if test="rewardId != null">
+        reward_id,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="date != null">
+        date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="deliverymanId != null">
+        #{deliverymanId,jdbcType=INTEGER},
+      </if>
+      <if test="settlementId != null">
+        #{settlementId,jdbcType=INTEGER},
+      </if>
+      <if test="rewardId != null">
+        #{rewardId,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.orderservice.pojo.OrderDetail">
+    update order_detail
+    <set>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null">
+        account_id = #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="deliverymanId != null">
+        deliveryman_id = #{deliverymanId,jdbcType=INTEGER},
+      </if>
+      <if test="settlementId != null">
+        settlement_id = #{settlementId,jdbcType=INTEGER},
+      </if>
+      <if test="rewardId != null">
+        reward_id = #{rewardId,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="date != null">
+        date = #{date,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.orderservice.pojo.OrderDetail">
+    update order_detail
+    set status = #{status,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      account_id = #{accountId,jdbcType=INTEGER},
+      product_id = #{productId,jdbcType=INTEGER},
+      deliveryman_id = #{deliverymanId,jdbcType=INTEGER},
+      settlement_id = #{settlementId,jdbcType=INTEGER},
+      reward_id = #{rewardId,jdbcType=INTEGER},
+      price = #{price,jdbcType=DECIMAL},
+      date = #{date,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from order_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.example.orderservice.pojo.OrderDetail"
+          useGeneratedKeys="true">
+    insert into order_detail (status, address,
+      account_id, product_id, deliveryman_id, 
+      settlement_id, reward_id, price, 
+      date)
+    values (#{status,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+      #{accountId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{deliverymanId,jdbcType=INTEGER}, 
+      #{settlementId,jdbcType=INTEGER}, #{rewardId,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, 
+      #{date,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, status, address, account_id, product_id, deliveryman_id, settlement_id, 
+    reward_id, price, date
+    from order_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+</mapper>
